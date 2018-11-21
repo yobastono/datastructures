@@ -6,13 +6,15 @@ public class MyLinkedList<T> {
 	protected MyNode<T> head;
 
 	public static void main(String[] args) {
-		MyLinkedList<Employee> mLL = new MyLinkedList<>();
-		Comparator<Employee> comp = new CompareByName();
-		mLL.insertAlphabetically((new Employee("Robert")), comp);
-		mLL.insertAlphabetically((new Employee("Maria")), comp);
-		mLL.insertAlphabetically((new Employee("Simon")), comp);
-		mLL.insertAlphabetically((new Employee("Zorro")), comp);
-		mLL.insertAlphabetically((new Employee("Fata")), comp);
+		MyLinkedList<Employee_Company_A> mLL = new MyLinkedList<>();
+
+		Comparator<Employee_Company_A> compA = new CompareByName();
+
+		mLL.insertAlphabetically((new Employee_Company_A("Robert")), compA);
+		mLL.insertAlphabetically((new Employee_Company_A("Maria")), compA);
+		mLL.insertAlphabetically((new Employee_Company_A("Simon")), compA);
+		mLL.insertAlphabetically((new Employee_Company_A("Zorro")), compA);
+		mLL.insertAlphabetically((new Employee_Company_A("Fata")), compA);
 
 		mLL.show();
 	}
@@ -49,7 +51,7 @@ public class MyLinkedList<T> {
 			if (head == n) {
 				node.next = n;
 				head = node;
-				prev = node;
+				//prev = node;
 			} else {
 				prev.next = node;
 				node.next = n;
@@ -82,10 +84,10 @@ class MyNode<T> {
 	}
 }
 
-class CompareByName implements Comparator<Employee> {
+class CompareByName implements Comparator<Employee_Company_A> {
 
 	@Override
-	public int compare(Employee e1, Employee e2) {
+	public int compare(Employee_Company_A e1, Employee_Company_A e2) {
 		return e1.getName().compareTo(e2.getName());
 	}
 
