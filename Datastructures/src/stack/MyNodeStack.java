@@ -1,8 +1,13 @@
 package stack;
 
 public class MyNodeStack<T> {
-	MyNode<T> top;
+	public  MyNode<T> top;
 	MyNode<T> head;
+
+	public T getTopValue() {
+		if (top == null) return null;
+		return top.value;
+	}
 	
 	public static void main(String[]args) {
 		MyNodeStack<Integer> mNS = new MyNodeStack<>();
@@ -10,20 +15,27 @@ public class MyNodeStack<T> {
 		mNS.push(2);
 		mNS.push(3);
 		mNS.push(4);
-		mNS.push(5);
-		mNS.push(6);
-		mNS.push(7);
-		mNS.push(8);
 		mNS.showUpDown();
 		System.out.println("----------------");
 		System.out.println(mNS.pop());
-		
+		System.out.println("----------------");
+		System.out.println("----------------");
+		System.out.println(mNS.pop());
+		System.out.println("----------------");
+		System.out.println("----------------");
+		System.out.println(mNS.pop());
+		System.out.println("----------------");
+		System.out.println("----------------");
+		System.out.println(mNS.pop());
+		System.out.println("----------------");
+		System.out.println("----------------");
+		System.out.println(mNS.pop());
 		System.out.println("----------------");
 		mNS.showUpDown();
-		
+
 	}
 	
-	public void push(T value) {
+	public T push(T value) {
 		MyNode<T> node = new MyNode<>();
 		node.value = value;
 		if(top == null) {
@@ -34,19 +46,27 @@ public class MyNodeStack<T> {
 			top.next = node;
 			top = node;
 		}
+		return node.value;
 
 	}
 	
 	public T pop() {
+		if(this.isEmpty()) {
+			return null;
+		}
 		MyNode<T> res = top;
 		if(top == null) {
 			return null;
 		} else {
 			res.value = top.value;
 			top = top.prev;
-			top.next = null;
+			//top.next = null;
 		}
 		return res.value;
+	}
+	
+	public boolean isEmpty() {
+		return top == null;
 	}
 	
 	public void showUpDown() {
