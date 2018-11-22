@@ -3,7 +3,7 @@ package problems;
 import stack.*;
 
 // hopefully right, there is probably a better solution ;) 
-
+// https://www.hackerrank.com/challenges/java-stack/problem
 public class JavaStack {
 
 	public static void main(String[] args) {
